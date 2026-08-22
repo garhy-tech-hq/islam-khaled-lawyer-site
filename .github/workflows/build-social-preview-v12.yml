@@ -1,0 +1,38 @@
+name: Build final social preview v12
+
+on:
+  push:
+    paths:
+      - '.github/workflows/build-social-preview-v12.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild exact preview JPEG
+        run: |
+          cat .preview/v12-1.txt .preview/v12-2.txt .preview/v12-3.txt | base64 -d > public/og-preview-lawyer-v12.jpg
+          test "$(wc -c < public/og-preview-lawyer-v12.jpg)" -eq 17695
+          file public/og-preview-lawyer-v12.jpg
+      - name: Point social metadata at v12
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('og-preview-lawyer-v11.jpg', 'og-preview-lawyer-v12.jpg')
+          s = s.replace('<meta property="og:image:width" content="600">', '<meta property="og:image:width" content="480">')
+          s = s.replace('<meta property="og:image:height" content="315">', '<meta property="og:image:height" content="252">')
+          p.write_text(s, encoding='utf-8')
+          PY
+      - name: Commit final preview
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/og-preview-lawyer-v12.jpg index.html
+          git commit -m 'Install exact social preview v12'
+          git push
