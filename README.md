@@ -1,18 +1,14 @@
 # Islam Khaled Lawyer Site — GARHY TECH Project
 
 ## Replace the profile image
-Upload/replace this exact file:
+Upload or replace this exact file:
 
-`public/profile.webp`
+`public/profile.jpg`
 
-Keep the same file name and the site will automatically use the new image.
+Keep the same file name. The website and social preview will automatically use the new image without editing frontend code.
 
-## WhatsApp/social preview
-Replace:
+## Recommended source quality
+Use the original high-resolution JPG whenever possible. Avoid screenshots or heavily compressed WhatsApp copies.
 
-`public/og-cover.jpg`
-
-Recommended size: **1200 × 630**.
-
-## Deploy
-Import this repository into Vercel as a static project. No build command is required.
+## Vercel
+Connect this repository to the existing Vercel project `islam-khaled-lawyer-site`. No build command is required for this static site.
