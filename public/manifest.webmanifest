@@ -1,0 +1,36 @@
+{
+  "id": "/",
+  "name": "بطاقة المستشار اسلام خالد السهمودي",
+  "short_name": "اسلام السهمودي",
+  "description": "بطاقة تواصل قانونية رقمية للمستشار اسلام خالد السهمودي — اتصال مباشر، واتساب، والوصول إلى المكتب.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#050a12",
+  "theme_color": "#050a12",
+  "categories": ["business", "productivity"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/assets/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/app-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
